@@ -160,3 +160,5 @@ cython_debug/
 .idea/
 
 homework_4/testing_for_blog/__init__.py
+
+homework_5/templates/test.html
