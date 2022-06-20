@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% from 'macros/back_to_blog.html' import back_to_main_page %}
+
+{% block title %}
+User registration
+{% endblock %}
+
+{% block body %}
+<div class="container wrapper flex-grow-1">
+  <form method="post">
+    {{ form.hidden_tag() }}
+    <div class="card">
+      <div class="form-outline mb-4">
+        <div class="col d-flex justify-content-center">
+          {{ form.username.label(class="form-label mx-3") }}
+          {{ form.username(class="from-contol") }}
+        </div>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <div class="col d-flex justify-content-center">
+          {{ form.password.label(class="form-label mx-3") }}
+          {{ form.password(class="from-contol") }}
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <div class="form-outline mb-4">
+        <div class="col d-flex justify-content-center">
+          <input type="submit" value="Submit" class="btn btn-primary btn-block mb-4">
+        </div>
+      </div>
+      <div class="col d-flex justify-content-end">
+      {{ back_to_main_page() }}
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

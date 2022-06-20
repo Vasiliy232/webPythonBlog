@@ -1,0 +1,5 @@
+{% macro back_to_main_page() %}
+  <a href="{{ url_for("blog_main_app.mainpage") }}" class="btn btn-light float-end" role="button" data-bs-toggle="button">
+    <i class="fa fa-angle-double-left" aria-hidden="true"></i> BACK
+  </a>
+{% endmacro %}

@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% from "macros/back_to_blog.html" import back_to_main_page %}
+
+{% block title %}
+User authorization
+{% endblock %}
+
+{% block body %}
+<div class="container wrapper flex-grow-1">
+  <form method="post">
+    {{ form.hidden_tag() }}
+    <div class="card">
+      <div class="form-outline mb-4">
+        <div class="col d-flex justify-content-center my-3">
+          <span>Need in account?</span>
+          <a href="{{ url_for("users_app.register") }}">
+            <span>Sign up</span>
+          </a>
+        </div>
+        <div class="col d-flex justify-content-center">
+          {{ form.username.label(class="form-label mx-3") }}
+          {{ form.username(class="from-contol") }}
+        </div>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <div class="col d-flex justify-content-center">
+          {{ form.password.label(class="form-label mx-3") }}
+          {{ form.password(class="from-contol") }}
+        </div>
+      </div>
+
+      <!-- 2 column grid layout for inline styling -->
+      <div class="form-outline mb-4">
+        <div class="col d-flex justify-content-center">
+          <!-- Checkbox -->
+          <div class="form-check">
+            {{ form.logged_in.label(class="from-check-label") }}
+            {{ form.logged_in(class="form-check-input") }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Submit button -->
+      <div class="form-outline mb-4">
+        <div class="col d-flex justify-content-center">
+          <input type="submit" value="Submit" class="btn btn-primary btn-block mb-4">
+        </div>
+      </div>
+      <div class="col d-flex justify-content-end">
+      {{ back_to_main_page() }}
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

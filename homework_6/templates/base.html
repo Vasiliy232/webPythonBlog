@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      {% block title %}
+      Base title
+      {% endblock %}
+    </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open Sans">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+      h1,h2,h3,h4,h5,h6 {
+        font-family: "Oswald", sans-serif
+      }
+
+      body {
+        font-family: "Open Sans", sans-serif;
+        background-color: lightgrey;
+      }
+
+      .padding-large {
+        padding:0.8rem 1.6rem;
+      }
+
+      .card {
+        margin: 1.07rem;
+        padding: 0.7rem;
+      }
+
+      hr {
+        opacity: 0;
+      }
+    </style>
+  </head>
+
+  <body class="d-flex flex-column min-vh-100">
+    <!-- Navigation bar with social media icons -->
+    <nav class="navbar" style="background-color: #6c757d">
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+
+        <a href="#" class="btn btn-secondary" role="button" data-bs-toggle="button">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+
+        <a href="#" class="btn btn-secondary" role="button" data-bs-toggle="button">
+          <i class="fa fa-snapchat"></i>
+        </a>
+
+        <a href="#" class="btn btn-secondary" role="button" data-bs-toggle="button">
+          <i class="fa fa-flickr"></i>
+        </a>
+
+        <a href="#" class="btn btn-secondary" role="button" data-bs-toggle="button">
+          <i class="fa fa-twitter"></i>
+        </a>
+
+        <a href="#" class="btn btn-secondary" role="button" data-bs-toggle="button">
+          <i class="fa fa-linkedin"></i>
+        </a>
+
+      </div>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-secondary" type="submit"><i class="fa fa-search"></i></button>
+      </form>
+    </nav>
+
+    {% block body %}
+    Base body
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer class="container-fluid" style="padding: 2.4rem; background-color: #6c757d">
+      <a href="#" class="btn btn-dark padding-large" style="margin-bottom: 1rem; background-color: black">
+        <i class="fa fa-arrow-up" style="margin-right: 0.5rem"></i>To the top
+      </a>
+      <p>Powered by <span style="text-decoration: underline">Lisovskii Vasilii</span></p>
+    </footer>
+
+    <script>
+      // Toggle between hiding and showing blog replies/comments
+      function likeFunction(x) {
+        x.style.fontWeight = "bold";
+        x.innerHTML = "✓ Liked";
+      }
+      function zero_first_format(value)
+      {
+        if (value < 10)
+        {
+            value='0'+value;
+        }
+        return value;
+      }
+
+      function date_time()
+      {
+        let current_datetime = new Date();
+        let day = zero_first_format(current_datetime.getDate());
+        let month = zero_first_format(current_datetime.getMonth()+1);
+        let year = current_datetime.getFullYear();
+
+        return day+"."+month+"."+year;
+      }
+
+      /* выводим текущую дату и время на сайт в блок с id "current_date_time_block" */
+      document.getElementById('current_date_time_block').innerHTML = date_time();
+    </script>
+
+  </body>
+</html>

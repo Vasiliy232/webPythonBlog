@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% from "macros/back_to_blog.html" import back_to_main_page %}
+
+{% block title %}
+User authorization
+{% endblock %}
+
+{% block body %}
+<div class="container wrapper flex-grow-1">
+  <form method="post">
+    {{ form.hidden_tag() }}
+    <div class="card">
+      <div class="form-outline mb-4">
+        <div class="col d-flex justify-content-center my-3">
+          <span>Are you sure you want to log out?</span>
+        </div>
+        <div class="col d-flex justify-content-center">
+          <div class="form-check">
+            {{ form.logged_in.label(class="from-check-label") }}
+            {{ form.logged_in(class="form-check-input") }}
+          </div>
+        </div>
+        <div class="col d-flex justify-content-center">
+          <input type="submit" value="Submit" class="btn btn-primary btn-block mb-4">
+        </div>
+      </div>
+
+      <div class="col d-flex justify-content-end">
+      {{ back_to_main_page() }}
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

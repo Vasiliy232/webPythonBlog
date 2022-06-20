@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% from 'macros/back_to_blog.html' import back_to_main_page %}
+
+{% block title %}
+Post #{{ post.id }}
+{% endblock %}
+
+{% block body %}
+<div class="container wrapper flex-grow-1">
+  <div class="card">
+    <div class="card-header text-center" style="background-color: white">
+      <h3>{{ post.title }}</h3>
+      <h5>{{ post.user_username }}, <span style="opacity: 0.60">June 7, 2022</span></h5>
+    </div>
+
+    <div class="card-body">
+      <h5 class="card-title">{{ post.pre_post }}</h5>
+      <p class="card-text">{{ post.post_text }}</p>
+      <button type="button" class="btn btn-light" onclick="likeFunction(this)">
+        <b><i class="fa fa-thumbs-up"></i> Like</b>
+      </button>
+      {{ back_to_main_page() }}
+    </div>
+
+    <div class="card-footer text-muted">
+      2 days ago
+    </div>
+  </div>
+</div>
+{% endblock %}
